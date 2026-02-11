@@ -129,7 +129,7 @@ async def generate_quiz_route(request: QuizRequest):
     }}
 
     REGRAS:
-    1. Crie exatamente 3 perguntas.
+    1. Crie exatamente 10 perguntas.
     2. Cada pergunta deve ter 5 alternativas.
     3. Apenas uma alternativa correta ("is_correct": true) por pergunta.
     4. Baseie-se APENAS no contexto fornecido.
