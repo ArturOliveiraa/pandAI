@@ -97,7 +97,7 @@ async def generate_quiz_route(request: QuizRequest):
 
     # CONFIGURAÇÃO JSON PARA O MODELO
     generation_config = {
-        "temperature": 0.2, # Baixa temperatura para ser mais preciso
+        "temperature": 0.1, # Baixa temperatura para ser mais preciso
         "response_mime_type": "application/json", # Força resposta JSON nativa do Gemini 1.5
     }
 
