@@ -60,25 +60,51 @@ def gerar_quiz(topico):
     model = genai.GenerativeModel("models/gemini-2.5-flash")
     
     prompt = f"""
-    ATUE COMO UM PROFESSOR SÊNIOR.
-    Baseado APENAS no contexto abaixo, crie um Quiz Técnico.
-    
-    CONTEXTO:
-    {texto_base}
-    
-    REGRAS:
-    1. Crie 3 perguntas de múltipla escolha (A, B, C).
-    2. As perguntas devem ser técnicas e desafiadoras.
-    3. Indique a resposta correta e explique o porquê.
-    4. Se o contexto falar sobre 'cancelamento', foque nisso. Se falar sobre 'NFCe', foque nisso.
-    
-    SAÍDA ESPERADA:
-    ---
-    Pergunta 1: ...
-    Opções...
-    Resposta: ...
-    ---
-    """
+ATUE COMO UM PROFESSOR SÊNIOR ESPECIALISTA NO TEMA DO CONTEXTO.
+
+OBJETIVO:
+Gerar um Quiz Técnico AVANÇADO com base EXCLUSIVAMENTE no conteúdo fornecido no CONTEXTO.
+
+CONTEXTO:
+{texto_base}
+
+INSTRUÇÕES OBRIGATÓRIAS:
+
+1. Utilize SOMENTE informações presentes no CONTEXTO.
+2. NÃO inclua conhecimentos externos, suposições ou exemplos não mencionados.
+3. Se o CONTEXTO mencionar:
+   - "cancelamento" → foque prioritariamente em regras, prazos, validações, impactos e exceções.
+   - "NFCe" → foque em regras técnicas, obrigatoriedades, rejeições, contingências e validações fiscais.
+4. As perguntas devem ser técnicas, específicas e desafiadoras.
+5. Evite perguntas conceituais genéricas.
+6. Crie alternativas plausíveis (distratores tecnicamente coerentes).
+7. Apenas UMA alternativa deve estar correta.
+
+FORMATO DE SAÍDA (OBRIGATÓRIO):
+
+---
+Pergunta 1:
+Enunciado técnico detalhado.
+
+A) ...
+B) ...
+C) ...
+D) ...
+E) ...
+
+Resposta Correta: X
+
+Explicação Técnica:
+Explique detalhadamente o motivo da alternativa correta e por que as demais estão incorretas.
+
+---
+Pergunta 2:
+...
+
+---
+Pergunta 3:
+...
+---
 
     try:
         response = model.generate_content(prompt)
