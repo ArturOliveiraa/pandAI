@@ -59,8 +59,8 @@ def buscar_contexto(pergunta_usuario):
             "match_documents",
             {
                 "query_embedding": vetor_pergunta,
-                "match_threshold": 0.5, 
-                "match_count": 3
+                "match_threshold": 0.75, 
+                "match_count": 6
             }
         ).execute()
 
