@@ -68,43 +68,30 @@ Gerar um Quiz Técnico AVANÇADO com base EXCLUSIVAMENTE no conteúdo fornecido 
 CONTEXTO:
 {texto_base}
 
-INSTRUÇÕES OBRIGATÓRIAS:
+REGRAS DE QUANTIDADE E QUALIDADE:
+1. Tente gerar até 10 perguntas.
+2. IMPORTANTE: Se o conteúdo do CONTEXTO for insuficiente para 10 perguntas de qualidade, gere apenas o que for possível (ex: 3, 5 ou 7 perguntas).
+3. É preferível entregar poucas perguntas precisas do que muitas perguntas com informações inventadas.
+4. Baseie-se APENAS nas informações fornecidas. Não use conhecimentos externos.
 
-1. Utilize SOMENTE informações presentes no CONTEXTO.
-2. NÃO inclua conhecimentos externos, suposições ou exemplos não mencionados.
-3. Se o CONTEXTO mencionar:
-   - "cancelamento" → foque prioritariamente em regras, prazos, validações, impactos e exceções.
-   - "NFCe" → foque em regras técnicas, obrigatoriedades, rejeições, contingências e validações fiscais.
-4. As perguntas devem ser técnicas, específicas e desafiadoras.
-5. Evite perguntas conceituais genéricas.
-6. Crie alternativas plausíveis (distratores tecnicamente coerentes).
-7. Apenas UMA alternativa deve estar correta.
+INSTRUÇÕES TÉCNICAS:
+- Se o tema for "cancelamento", foque em prazos e regras fiscais do contexto.
+- Se for "NFCe", foque em contingência e rejeições descritas.
+- Cada pergunta deve ter 5 alternativas (A a E) e apenas uma correta.
 
-FORMATO DE SAÍDA (OBRIGATÓRIO):
-
+SAÍDA ESPERADA:
 ---
-Pergunta 1:
-Enunciado técnico detalhado.
-
+Pergunta 1: ...
 A) ...
 B) ...
 C) ...
 D) ...
 E) ...
-
-Resposta Correta: X
-
-Explicação Técnica:
-Explique detalhadamente o motivo da alternativa correta e por que as demais estão incorretas.
-
+Resposta Correta: ...
+Explicação: (Baseada no contexto)
 ---
-Pergunta 2:
-...
-
----
-Pergunta 3:
-...
----
+(Repita para as demais perguntas)
+"""
 
     try:
         response = model.generate_content(prompt)
